@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #FFF9F6 0%, #FAF0F4 25%, #F4EEF8 55%, #FFF4ED 85%, #FAF7F2 100%);
+    color: #1D2220;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    min-height: 100vh;
+  }
+
+  /* Accessible focus rings */
+  :focus-visible {
+    outline: 2px solid #C16A5B;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .bg-pastel-mesh {
+    background: radial-gradient(at 0% 0%, rgba(253, 230, 238, 0.7) 0px, transparent 55%),
+                radial-gradient(at 100% 0%, rgba(243, 232, 255, 0.7) 0px, transparent 55%),
+                radial-gradient(at 50% 50%, rgba(255, 241, 230, 0.6) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(254, 237, 243, 0.7) 0px, transparent 55%),
+                radial-gradient(at 0% 100%, rgba(245, 235, 252, 0.7) 0px, transparent 55%);
+  }
+
+  /* Review Box Typography: 17-19px mobile, 18-20px desktop */
+  .review-text-size {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75;
+  }
+
+  @media (min-width: 640px) {
+    .review-text-size {
+      font-size: 1.25rem; /* 20px */
+      line-height: 1.8;
+    }
+  }
+}
+
+/* Premium Beauty Salon Decorative Floating Animations */
+@keyframes floatVertical {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes floatDiagonal {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  50% {
+    transform: translate(-10px, -22px) rotate(2.5deg);
+  }
+}
+
+@keyframes floatSway {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  50% {
+    transform: translate(12px, -16px) rotate(-3deg);
+  }
+}
+
+@keyframes floatReverseVertical {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(18px) rotate(2deg);
+  }
+}
+
+@keyframes floatPetal {
+  0%, 100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  50% {
+    transform: translate(-14px, -24px) rotate(7deg);
+  }
+}
+
+@keyframes salonFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-float-vertical {
+  animation: floatVertical 7.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-float-diagonal {
+  animation: floatDiagonal 9.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-float-sway {
+  animation: floatSway 8.4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-float-reverse-vertical {
+  animation: floatReverseVertical 7.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-float-petal {
+  animation: floatPetal 10.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.animate-salon-fade-in {
+  animation: salonFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-float-vertical,
+  .animate-float-diagonal,
+  .animate-float-sway,
+  .animate-float-reverse-vertical,
+  .animate-float-petal,
+  .animate-salon-fade-in {
+    animation: none !important;
+    transform: none !important;
+  }
+}
